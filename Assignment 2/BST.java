@@ -68,9 +68,11 @@ class BST<E extends Comparable<E>> {
         // if we make it here, we have a novel element and need to insert it as leaf
         if (data.compareTo(parent.data) < 0) {
             parent.left = new Node(data);
+            parent.left.parentNode =parent;
             localCount = 1;
         } else if (data.compareTo(parent.data) > 0) {
             parent.right = new Node(data);
+            parent.right.parentNode =parent;
             localCount = 1;
         }
         System.out.println("Node \'" + data + "\' inserted into the tree. Parent node: \'" + parent.data + "\' Count: " + localCount);
