@@ -34,6 +34,7 @@ class driver {
             //format
             line = line.toUpperCase();
             line = line.replace(".", "");
+            line = line.replace("\"", "");
             // add line to our long string
             sb.append(line);
         }
