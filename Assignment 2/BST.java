@@ -7,18 +7,23 @@
 // this file contains the bst (mine not generic)
 class BST<E extends Comparable<E>> {
 
+    // node object that will hold 3 pointers:
+    // left, right, and parent
+    // also holds data (String) and count (occurences of that string)
     class Node {
 
         E data;
         Node left;
         Node right;
         Node parentNode;
+        int count;
 
         Node(E data) {
             this.data = data;
             left = null;
             right = null;
             parentNode = null;
+            count = 1;
         }
     }
 
@@ -28,6 +33,7 @@ class BST<E extends Comparable<E>> {
         // fastest case: if root is null (tree is empty), create tree with Node (data) as root
         if (root == null) {
             root = new Node(data);
+            System.out.println("Node \'" + data + "\' inserted into the tree as ROOT. Count: 1");
             return true;
         }
         // pointer to iterate through the tree
@@ -35,8 +41,9 @@ class BST<E extends Comparable<E>> {
         // pointer to remember parent
         Node parent = null;
 
-        // keep track if value is already in tree to alert 
-        boolean alreadyExists = false;
+        boolean duplicate = false;
+        //keep track of curernt nodes count value for printng later
+        int localCount = 0;
         //use pointer to move through the tree
         while (current != null) {
             // if data is less than current pouinter, we move left and store parent
@@ -49,23 +56,24 @@ class BST<E extends Comparable<E>> {
                 parent = current;
                 current = current.right;
             } else {
-                break; //if it is neighter lower nor higher, it is equal, and tree does not accept duplicates
+                //if it is neighter lower nor higher, it is equal, so we increase the counter
+                localCount = ++current.count;
+                System.err.println("Key \'" + data + "\' already inserted into tree. Count increased from " + (localCount - 1) + " to " + localCount);
+                return true;
+
             }
 
         }
 
-        // once we exit loop we have either:
-        //1: found a leaf (current != null)
-        //2: our data matched with a value so loop ended (alreadyExists = true )
+        // if we make it here, we have a novel element and need to insert it as leaf
         if (data.compareTo(parent.data) < 0) {
             parent.left = new Node(data);
+            localCount = 1;
         } else if (data.compareTo(parent.data) > 0) {
             parent.right = new Node(data);
-        } else {
-            System.err.println("Key \'" + data + "\' already inserted into tree. Ignoring.");
-            return false;
+            localCount = 1;
         }
-        System.out.println("Node \'" + data + "\' inserted into the tree. Parent node: \'" + parent.data + "\'");
+        System.out.println("Node \'" + data + "\' inserted into the tree. Parent node: \'" + parent.data + "\' Count: " + localCount);
         return true;
 
     }
@@ -75,7 +83,7 @@ class BST<E extends Comparable<E>> {
         // Place to Store output
         StringBuilder output = new StringBuilder();
         //call helper function 
-        output.append("$");
+        output.append("$ > ");
         LVR(root, output);
         output.append("$");
         return output.toString();
@@ -91,7 +99,7 @@ class BST<E extends Comparable<E>> {
         LVR(n.left, output);
         // process this node (V)
         output.append(n.data);
-        output.append(" > ");
+        output.append("(" + n.count + ")  > ");
         // recurse right (R)
         LVR(n.right, output);
 
