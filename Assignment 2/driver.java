@@ -18,8 +18,8 @@ class driver {
         tree.insert("z");
         tree.insert("z");
         tree.insert("b");
-        //tree.insert("hi");
         System.out.println(tree.LVR_Inorder());
+
     }
 
     // parse input file and return array of all strings.
@@ -31,6 +31,8 @@ class driver {
         while (sc.hasNextLine()) {
             // grab line, remove punctuation
             String line = sc.nextLine();
+            //format
+            line = line.toUpperCase();
             line = line.replace(".", "");
             // add line to our long string
             sb.append(line);
@@ -60,8 +62,11 @@ class driver {
         }
         //create Tree Object 
         BST<String> tree = new BST<>();
+        // insert words into three one by one
         for (String s : words) {
             tree.insert(s);
         }
+        // print results
+        System.err.println("TREE: \n"+tree.LVR_Inorder());
     }
 }
