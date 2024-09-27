@@ -12,29 +12,30 @@ class BST:
             self.data = data
             self.left=None
             self.right=None
+            self.count=1
     # constructor for BST
     def __init__(self) -> None:
         self.root=None
     
     # insert into BST
-    def insert(self, data) -> bool:
+    def insert(self, data):
         # if root = Null, create root with data
         if self.root==None:
             self.root = self.Node(data)
-            return True
+            return
         else:
             # else create pointer to root and traverse
             current = self.root
             while current!=None:
                 if data == current.data:
-                    print("Data already inserted into tree!")
-                    return False
+                    current.count+=1
+                    return
                 #traverse right if new data > current nodes data
                 if data > current.data:
                     # if right node does not exist, create it with data and escape
                     if current.right == None:
                         current.right = self.Node(data)
-                        return True
+                        return
                     else:
                     # else move right and continue loop
                         current=current.right
@@ -44,24 +45,36 @@ class BST:
                     # if left does not exist, create
                     if current.left == None:
                         current.left = self.Node(data)
-                        return True
+                        return
                     else:
                         current = current.left
             current = self.Node(data)
-            return True
+            return
         
-
-    def LVR(self) -> None:
+    # Inorder traversal of tree
+    def inorder(self):
+        # define list to store output
         output = []
-        self.LVR_Traverse(self.root, output)
+        # pass root and output list to recursive LVR helper function
+        self.LVR(self.root, output)
+        # print output
         print(output)
+        # return output 
+        return output
     
-    def LVR_Traverse(self,currentNode,output):
+    # LVR recursive helper function 
+    def LVR(self,currentNode,output):
+        # base case
         if currentNode == None:
             return
-        self.LVR_Traverse(currentNode.left,output)
-        output.append(currentNode.data)
-        self.LVR_Traverse(currentNode.right,output)
+        else:
+            # recursive case
+            # recurse left
+            self.LVR(currentNode.left,output)
+            # process
+            output.append((currentNode.data, currentNode.count))
+            # recurse right
+            self.LVR(currentNode.right,output)
         
 
 
