@@ -57,9 +57,7 @@ class BST:
         output = []
         # pass root and output list to recursive LVR helper function
         self.LVR(self.root, output)
-        # print output
-        print(output)
-        # return output 
+        # return tree traversal output as list of tuples (word, count) 
         return output
     
     # LVR recursive helper function 

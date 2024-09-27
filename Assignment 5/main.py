@@ -7,6 +7,7 @@
 
 # import sys to read cli arguments
 import sys
+# import our BST class
 import BST
 # check if arguments were passed to interpreter
 if (len(sys.argv) == 1):
@@ -33,7 +34,12 @@ for line in file:
     for word in lineword:
         # remove any unwanted elements (empty strings, \n) and insert into tree 
         if len(word)>1 and word != "\n":
+            word.replace("\n","")
             tree.insert(word.lower())
         
-# print tree and store its LVR traversal
+# run inorder traversal and store its LVR traversal
 output = tree.inorder()
+print("TREE: (word , count) \n$ ->  ", end= "")
+for node in output:
+    print(node[0], "\b," ,node[1], end=" ->  ")
+print("$")
