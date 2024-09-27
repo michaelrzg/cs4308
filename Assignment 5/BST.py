@@ -19,6 +19,11 @@ class BST:
     
     # insert into BST
     def insert(self, data):
+        """
+        Inserts a node into the binary tree. If node is already inserted, incriments count.
+
+        :Param data -> Any
+        """
         # if root = Null, create root with data
         if self.root==None:
             self.root = self.Node(data)
@@ -51,9 +56,14 @@ class BST:
             current = self.Node(data)
             return
         
-    # Inorder traversal of tree
+    
     def inorder(self):
-        # define list to store output
+        """ 
+        In-Order Traversal of BST 
+
+        Returns all nodes of BST in LVR Ordering as List
+
+        List format: [ (word1,count1) , (word2,count2) ...] """
         output = []
         # pass root and output list to recursive LVR helper function
         self.LVR(self.root, output)
@@ -62,6 +72,9 @@ class BST:
     
     # LVR recursive helper function 
     def LVR(self,currentNode,output):
+        """
+        Recursive Helper Function for self.inorder()
+        """
         # base case
         if currentNode == None:
             return
