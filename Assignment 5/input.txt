@@ -1,0 +1,9 @@
+Concepts of Programming Lang Section W01 Fall Semester 2024 
+This is assignment is to implement the word count problem in Java. Specifically, the assignment is to create a program which counts the number of occurrences of each word in a text file.  The program requires are 
+file name needs to be a command line argument 
+appropriate error handling needs to be done 
+do not consider character case when comparing words 
+a generic (template) binary search tree needs to be used to store the words and their counts – You will need to implement this tree. 
+Each node in the tree will hold a word and a counter 
+appropriate design principles need to be used 
+result will be a display of the words in alphabetical order and the number of occurrences 
