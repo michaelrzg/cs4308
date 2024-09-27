@@ -21,29 +21,19 @@ elif len(sys.argv)==2:
         print("\033[31m", "ERROR: Unable to find file at path: " , sys.argv[1], "\n Please double check path and try again")
         sys.exit()
 
-# if we made it here, file is valid
-# create list to store words 
-words = []
-# parse through file, adding each word to the list
-for line in file:
-    lineword= line.split(' ')
-    for word in lineword:
-        if len(word)>1:
-            words.append(word.lower())
-# simple loop to remove all \n new line characters
-while True:
-    # .remove returns None or raises Value Error (value paramater not found in list)
-    # when we get value error, we have removed all \n from list
-    try:
-        words.remove("\n")
-    except ValueError:
-        break
-        
+# if we made it here, path leads to valid file
+
 # create binary tree
 tree = BST.BST()
-# insert words
-for word in words:
-    tree.insert(word)
 
+# parse through file, adding each word to the list
+for line in file:
+    # split line into array of the words seperated by spaces
+    lineword= line.split(' ')
+    for word in lineword:
+        # remove any unwanted elements (empty strings, \n) and insert into tree 
+        if len(word)>1 and word != "\n":
+            tree.insert(word.lower())
+        
 # print tree and store its LVR traversal
 output = tree.inorder()
