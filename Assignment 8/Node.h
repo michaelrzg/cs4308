@@ -1,7 +1,10 @@
-// header file for Node
 // Michael Rizig
-// CS4308 Gayler
-// Assignment 7
+// Term: Fall 2024
+// Instructor: Gayler
+// Assignment 8
+// File: Node.h
+// 11/24/24
+//  this file contains the tree Node header
 
 #ifndef Node_H
 #define Node_H

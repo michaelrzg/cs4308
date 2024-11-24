@@ -1,7 +1,10 @@
-// header file for value pair structure
 // Michael Rizig
-// CS4308 Gayler
-// Assignment 7
+// Term: Fall 2024
+// Instructor: Gayler
+// Assignment 8
+// File: ValuePair.h
+// 11/24/24
+//  this file contains the value pairs structure header
 #ifndef ValuePair_H
 #define ValuePair_H
 

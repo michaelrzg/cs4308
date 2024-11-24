@@ -1,7 +1,10 @@
-// header file for BST
 // Michael Rizig
-// CS4308 Gayler
-// Assignment 7
+// Term: Fall 2024
+// Instructor: Gayler
+// Assignment 8
+// File: BST.h
+// 11/24/24
+//  this file contains the Binary Search Tree header
 
 #ifndef BST_H 
 #define BST_H

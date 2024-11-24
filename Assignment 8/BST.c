@@ -1,7 +1,10 @@
-// source file for BST
 // Michael Rizig
-// CS4308 Gayler
-// Assignment 7
+// Term: Fall 2024
+// Instructor: Gayler
+// Assignment 8
+// File: BST.c
+// 11/24/24
+//  this file contains the Binary Search Tree implementation
 
 // include the header file for this src
 #include "BST.h"

@@ -1,7 +1,10 @@
-// Driver for assignment 7
 // Michael Rizig
-// CS4308 Gayler
-// Assignment 7
+// Term: Fall 2024
+// Instructor: Gayler
+// Assignment 8
+// File: main.c
+// 11/24/24
+//  this file contains the driver for assignment 8
 
 #include "BST.c"
 
