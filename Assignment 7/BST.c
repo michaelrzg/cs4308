@@ -38,7 +38,7 @@ bool insert(BST* tree, char* data){
         // create new valuepair to go into tree.
         ValuePair pair;
         pair.count = 1;
-        pair.value = data;
+        pair.value = strdup(data);
         // assign new value to head
         tree->head->data = pair;
         tree->head->left = NULL;
@@ -53,15 +53,15 @@ bool insert(BST* tree, char* data){
         Node* current = tree->head;
         Node* prev = current;
         while(current != NULL){
-            if(current->data.value > data){
+            if(strcasecmp(current->data.value,data) <0){
                 prev=current;
                 current = current->left;
             }
-            else if (current->data.value < data){
+            else if (strcasecmp(current->data.value,data) >0){
                 prev=current;
                 current = current->right;
             }
-            else if (current->data.value == data){
+            else if (strcasecmp(current->data.value,data) ==0){
                 current->data.count++;
                 printf("\nUPDATE: %s already exists in tree, new count: %d",current->data.value,current->data.count);
                 return false;
@@ -70,8 +70,8 @@ bool insert(BST* tree, char* data){
         // create new valuepair to go into tree.
         ValuePair pair;
         pair.count = 1;
-        pair.value = data;
-        if(prev->data.value < data){
+        pair.value = strdup(data);
+        if(strcasecmp(prev->data.value,data) >0){
             // insert right
             prev->right = (Node*)malloc(sizeof(Node));
             prev->right->data = pair;

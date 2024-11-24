@@ -1,6 +1,7 @@
 // header file for BST
 // Michael Rizig
-
+// CS4308 Gayler
+// Assignment 7
 
 #ifndef BST_H 
 #define BST_H
