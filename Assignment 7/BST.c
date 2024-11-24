@@ -12,7 +12,7 @@
 #include <stdlib.h>
 
 // insert a node into the tree
-bool insert(BST* tree, int data){
+bool insert(BST* tree, char* data){
     // check if tree is null
     if(tree == NULL){
         return false;

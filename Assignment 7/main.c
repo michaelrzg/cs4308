@@ -5,14 +5,8 @@ int main(){
     BST tree = {NULL};
     
 
-    insert(&tree,5);
+    insert(&tree,"GELL");
     inorder(&tree);
-    insert(&tree,7);
-    inorder(&tree);
-    insert(&tree,1);
-    inorder(&tree);
-    insert(&tree,7);
-    inorder(&tree);
-
+    
 
 }

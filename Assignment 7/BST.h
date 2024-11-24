@@ -15,7 +15,7 @@
 typedef struct BST{
     Node* head;
 } BST;
-bool insert(BST* tree, int data);
+bool insert(BST* tree, char* data);
 void inorder(BST* tree);
 void inorder_helper(Node* n);
 #endif

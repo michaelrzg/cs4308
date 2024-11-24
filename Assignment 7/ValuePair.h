@@ -1,7 +1,9 @@
 #ifndef ValuePair_H
 #define ValuePair_H
+
+#include <string.h>
 typedef struct ValuePair{
-    int value;
+    char* value;
     int count;
 } ValuePair;
 #endif
