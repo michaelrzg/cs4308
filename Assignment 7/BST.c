@@ -86,6 +86,19 @@ bool insert(BST* tree, int data){
 }
 
 void inorder(BST* tree){
-    
+    printf("\n(VALUE,COUNT): ");
+    inorder_helper(tree->head);
+    printf("\n");
+}
+void inorder_helper(Node* n){
+    if(n==NULL){
+        return;
+    }
+    else{
+        inorder_helper(n->left);
+        printf("(%d,%d), ",n->data.value,n->data.count);
+        inorder_helper(n->right);
+
+    }
 }
 
