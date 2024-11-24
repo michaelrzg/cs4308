@@ -31,10 +31,10 @@ int main(int argc, char *argv[]){
      while (fscanf(file, "%255s", word) == 1) {
         insert(&tree,word); 
    }
-    insert(&tree,"GEE");
-    insert(&tree,"GEEL");
-
+    // print tree
     inorder(&tree);
+
+    return 0;
     
     
 

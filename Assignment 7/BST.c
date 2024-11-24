@@ -44,7 +44,7 @@ bool insert(BST* tree, char* data){
         tree->head->left = NULL;
         tree->head->right = NULL;
         // print update
-        printf("\nUPDATE: New head created. Value: %s, Count: %d",tree->head->data.value,tree->head->data.count);
+        printf("\nUPDATE: New head created. Value: \'%s\', Count: %d",tree->head->data.value,tree->head->data.count);
         // end
         return true;
     }
@@ -63,7 +63,7 @@ bool insert(BST* tree, char* data){
             }
             else if (strcasecmp(current->data.value,data) ==0){
                 current->data.count++;
-                printf("\nUPDATE: %s already exists in tree, new count: %d",current->data.value,current->data.count);
+                printf("\nUPDATE: \'%s\' already exists in tree, new count: %d",current->data.value,current->data.count);
                 return false;
             }
         }
@@ -86,7 +86,7 @@ bool insert(BST* tree, char* data){
             prev->left->right=NULL;  
         }
             //update
-            printf("\nUPDATE: Node inserted. Value: %s",data);
+            printf("\nUPDATE: Node inserted. Value: \'%s\'",data);
              //end
             return true;
     }
@@ -98,7 +98,7 @@ bool insert(BST* tree, char* data){
  * @param tree Tree to be printed
  */
 void inorder(BST* tree){
-    printf("\n");
+    printf("\n TREE:(word,count) \n");
     inorder_helper(tree->head);
     printf("\n");
 }
@@ -115,7 +115,7 @@ void inorder_helper(Node* n){
     //recursive case
     else{
         inorder_helper(n->left);
-        printf("(%s,%d), ",n->data.value,n->data.count);
+        printf("(\'%s\',%d), ",n->data.value,n->data.count);
         inorder_helper(n->right);
 
     }
