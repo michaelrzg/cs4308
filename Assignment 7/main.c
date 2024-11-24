@@ -7,6 +7,10 @@ int main(){
 
     insert(&tree,"GELL");
     inorder(&tree);
+    insert(&tree,"GELL");
+    inorder(&tree);
+    insert(&tree,"HELL");
+    inorder(&tree);
     
 
 }

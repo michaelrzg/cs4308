@@ -11,7 +11,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// insert a node into the tree
+/**
+ * @brief Inserts node into tree
+ *
+ * This function inserts node new or updates existing node.
+ *
+ * @param tree address of tree that the value is being inserted to
+ * @param b string (char list) to be inserted
+ * @return TRUE if inserted/updated, FALSE if error occurs.
+ */
 bool insert(BST* tree, char* data){
     // check if tree is null
     if(tree == NULL){
@@ -36,7 +44,7 @@ bool insert(BST* tree, char* data){
         tree->head->left = NULL;
         tree->head->right = NULL;
         // print update
-        printf("\nUPDATE: New head created. Value: %d, Count: %d",tree->head->data.value,tree->head->data.count);
+        printf("\nUPDATE: New head created. Value: %s, Count: %d",tree->head->data.value,tree->head->data.count);
         // end
         return true;
     }
@@ -55,7 +63,7 @@ bool insert(BST* tree, char* data){
             }
             else if (current->data.value == data){
                 current->data.count++;
-                printf("\nUPDATE: %d already exists in tree, new count: %d",current->data.value,current->data.count);
+                printf("\nUPDATE: %s already exists in tree, new count: %d",current->data.value,current->data.count);
                 return false;
             }
         }
@@ -78,25 +86,34 @@ bool insert(BST* tree, char* data){
             prev->left->right=NULL;  
         }
             //update
-            printf("\nUPDATE: Node inserted. Value: %d",data);
+            printf("\nUPDATE: Node inserted. Value: %s",data);
              //end
             return true;
     }
 
 }
-
+/**
+ * @brief Prints inorder traversal of tree (LVR)
+ *
+ * @param tree Tree to be printed
+ */
 void inorder(BST* tree){
-    printf("\n(VALUE,COUNT): ");
+    printf("\n");
     inorder_helper(tree->head);
     printf("\n");
 }
+/**
+ * @brief Helper recursive function for inorder()
+ *
+ * @param tree current node
+ */
 void inorder_helper(Node* n){
     if(n==NULL){
         return;
     }
     else{
         inorder_helper(n->left);
-        printf("(%d,%d), ",n->data.value,n->data.count);
+        printf("(%s,%d), ",n->data.value,n->data.count);
         inorder_helper(n->right);
 
     }
