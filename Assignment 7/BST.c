@@ -12,14 +12,14 @@
 #include <stdlib.h>
 
 // insert a node into the tree
-bool insert(BST* tree, ValuePair data){
+bool insert(BST* tree, int data){
     // check if tree is null
     if(tree == NULL){
         return false;
     }
     // check if tree is empty
     if(tree->head == NULL){
-        printf("Tree is empty! Creating new Head..");
+        printf("UPDATE: Tree is empty! Creating new head..");
         // create new head
         tree->head = (Node*)malloc(sizeof(Node));
         // check if malloc worked to avoid bus error
@@ -27,12 +27,65 @@ bool insert(BST* tree, ValuePair data){
             printf("memory allocation failed");
             return false;
         }
+        // create new valuepair to go into tree.
+        ValuePair pair;
+        pair.count = 1;
+        pair.value = data;
         // assign new value to head
-        tree->head->data = data;
+        tree->head->data = pair;
         tree->head->left = NULL;
         tree->head->right = NULL;
+        // print update
+        printf("\nUPDATE: New head created. Value: %d, Count: %d",tree->head->data.value,tree->head->data.count);
         // end
         return true;
     }
+    // else tree is not empty, find place for new value
+    else{
+        Node* current = tree->head;
+        Node* prev = current;
+        while(current != NULL){
+            if(current->data.value > data){
+                prev=current;
+                current = current->left;
+            }
+            else if (current->data.value < data){
+                prev=current;
+                current = current->right;
+            }
+            else if (current->data.value == data){
+                current->data.count++;
+                printf("\nUPDATE: %d already exists in tree, new count: %d",current->data.value,current->data.count);
+                return false;
+            }
+        }
+        // create new valuepair to go into tree.
+        ValuePair pair;
+        pair.count = 1;
+        pair.value = data;
+        if(prev->data.value < data){
+            // insert right
+            prev->right = (Node*)malloc(sizeof(Node));
+            prev->right->data = pair;
+            prev->right->left = NULL;
+            prev->right->right=NULL;
+        }
+        else{
+            //insert left
+            prev->left = (Node*)malloc(sizeof(Node));
+            prev->left->data = pair;
+            prev->left->left = NULL;
+            prev->left->right=NULL;  
+        }
+            //update
+            printf("\nUPDATE: Node inserted. Value: %d",data);
+             //end
+            return true;
+    }
 
 }
+
+void inorder(BST* tree){
+    
+}
+

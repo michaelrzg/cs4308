@@ -15,5 +15,6 @@
 typedef struct BST{
     Node* head;
 } BST;
-bool insert(BST* tree, ValuePair data);
+bool insert(BST* tree, int data);
+void inorder(BST* tree);
 #endif

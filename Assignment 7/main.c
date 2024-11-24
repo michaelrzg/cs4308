@@ -3,9 +3,13 @@
 #include "ValuePair.h"
 int main(){
     BST tree = {NULL};
-    ValuePair pair;
-    pair.count = 1;
-    pair.data = 5;
+    
 
-    insert(&tree,pair);
+    insert(&tree,5);
+    insert(&tree,7);
+    insert(&tree,1);
+    insert(&tree,7);
+
+
+
 }
