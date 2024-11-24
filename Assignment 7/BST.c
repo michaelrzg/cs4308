@@ -108,9 +108,11 @@ void inorder(BST* tree){
  * @param tree current node
  */
 void inorder_helper(Node* n){
+    //base case
     if(n==NULL){
         return;
     }
+    //recursive case
     else{
         inorder_helper(n->left);
         printf("(%s,%d), ",n->data.value,n->data.count);
